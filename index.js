@@ -1,7 +1,6 @@
 const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
-const database = require("./database.json");
-const mysql = require("mysql");
+
 
 const activeSongs = new Map();
 
@@ -18,16 +17,7 @@ client.commands = new discord.Collection();
 
 client.login(process.env.token);
 
-var con = mysql.createConnection({
-    host: database.host,
-    user: database.user,
-    password: database.password,
-    database: database.database
-});
 
-con.connect(err => {
-    if (err) throw err;
-});
 
 
 //  Command handler
